@@ -1,0 +1,165 @@
+﻿
+@{
+    ViewData["Title"] = "Novo";
+
+}
+
+@model WebBlog.Models.Post
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/estilo-admin.css" rel="stylesheet" />
+    <link href="~/css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <h2>Novo</h2>
+
+</head>
+<body>
+    <div>
+        @using (@Html.BeginForm("Adiciona", "Post"))
+        {
+            @Html.LabelFor(p => p.Titulo)
+            @Html.TextBoxFor(p => p.Titulo)
+            @Html.ValidationMessageFor(p => p.Titulo)
+
+            @Html.LabelFor(p => p.Resumo)
+            @Html.TextBoxFor(p => p.Resumo)
+            @Html.ValidationMessageFor(p => p.Resumo)
+
+            @Html.LabelFor(p => p.Categoria)
+            @Html.TextBoxFor(p => p.Categoria)
+            @Html.ValidationMessageFor(p => p.Categoria)
+
+            <button class="btn btn-primary" type="submit">Cadastrar</button>
+
+        }
+    </div>
+    @*<div>
+            @using (Html.BeginForm("Adiciona", "Post"))
+            {
+                @Html.EditorFor(p => p)
+                <button  type="submit">Cadastrar</button>
+
+            }
+        </div>*@
+    @section Scripts{
+        @Html.Partial("_Scripts")
+        <script>
+        $("input[name = 'Categoria']").autocomplete({
+            source: function (request, response) {
+                $.post(
+                    "@Url.Action("CategoriaAutocomplete")",
+                    {
+                        termoDigitado:
+
+                            request.term
+                    }, function (data) {
+                        response(data);
+                    }
+                )
+            }
+
+        })
+        $.("body").validate()
+        </script>
+    }
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+    @*<div>
+        @using (@Html.BeginForm("Adiciona", "Post"))
+        {
+            @Html.LabelFor(p => p.Titulo)
+            @Html.TextBoxFor(p => p.Titulo)
+            @Html.ValidationMessageFor(p => p.Titulo)
+
+            @Html.LabelFor(p => p.Resumo)
+            @Html.TextBoxFor(p => p.Resumo)
+            @Html.ValidationMessageFor(p => p.Resumo)
+
+            @Html.LabelFor(p => p.Categoria)
+            @Html.TextBoxFor(p => p.Categoria)
+            @Html.ValidationMessageFor(p => p.Categoria)
+            
+            <button class="btn btn-primary"  type="submit">Cadastrar</button>
+
+        }
+    </div>*@
+</body>
+</html>
+@*<form action="/Post/Adiciona" method="post">
+        <label>
+            Titulo:
+            <input name="titulo" required value="@Model.Titulo"/>
+        </label>
+        <label>
+            Resumo:
+            <input name="resumo" maxlength="50" value="@Model.Resumo"/>
+        </label>
+        <label>
+            Categoria:
+            <input name="categoria" value="@Model.Categoria"/>
+        </label>
+        @Html.ValidationMessage("categoria");
+        <input+ type="submit" value="Cadastrar" />
+    </form>*@

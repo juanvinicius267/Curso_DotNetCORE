@@ -1,0 +1,21 @@
+﻿
+@*@{
+
+}*@
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administração - Resenha Cultural</title>
+    <link href="~/wwwroot/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/wwwroot/css/estilo.css" rel="stylesheet" />
+    <link href="~/wwwroot/css/estilo-admin.css" rel="stylesheet" />
+    <link href="~/wwwroot/css/jquery-ui.css" rel="stylesheet" />
+</head>
+<body>
+    @Html.Partial("MenuAdmin")
+    <main>
+        @RenderBody()
+    </main>
+    @RenderSection("Scripts", false)
+</body>

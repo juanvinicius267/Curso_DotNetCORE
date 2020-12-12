@@ -1,0 +1,41 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/estilo.css" rel="stylesheet" />
+    <div>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <ul class="navbar">
+                    <li class="btn btn-dark"><a href="~/Home/Index">Home</a></li>
+                    <li class="btn btn-dark"><a href="~/Usuario/Login">Login</a></li>
+                    <li class="btn btn-dark"><a href="~/Admin/Post/Index">Index</a></liclass="btn">
+                    <li class="btn btn-dark"><a href="~/Admin/Post/Novo">Novo</a></li>
+                    <li class="btn btn-dark"><a href="~/Admin/Post/Vizualiza">Vizualiza</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</head>
+
+<body>
+    <div>
+        @Html.Partial("_Cabecalho")
+    </div>
+
+    <div class="container clearfix">
+        <main>
+            @RenderBody()
+
+        </main>
+        @Html.Partial("_Lateral")
+    </div>
+
+
+    @Html.Partial("_Rodape")
+    @RenderSection("Scripts", false)
+</body>
+</html>
+
+
